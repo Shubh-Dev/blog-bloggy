@@ -1,1 +1,16 @@
-<h2>All the post of a user goes here</h2>
+<div class="posts-container">
+    <div class="post-header">
+        <div class="post-image-holder">
+            <img src="<%= @user.photo %>" alt="user">
+        </div>
+            <div class="post-details">
+                <h3><%= @user.name %></h3>
+                <p><%= @user.posts_counter %></p>
+        </div>
+    </div>
+    <% @posts.reverse.each_with_index do |post| %>
+        <div class="post">
+            <h2><%= post.title %></h2>
+            <p><%= post.text %></p>
+        </div>
+</div>
