@@ -1,1 +1,29 @@
-<h2>A single user details goes here</h2>
+<div class="user-container">
+    <div class="user-header">
+        <img src="<%= @user.photo %>" alt="photo">
+        <h2><%= @user.name %></h2>
+    </div>
+
+    <div class="user-bio">
+        <p><%= @user.bio %></p>
+    </div>
+
+    <div class="user-posts">
+        <div class="post-container">
+            <% @user.three_recent_posts.reverse.each_with_index do |post, index| %>
+                <div class="post">
+                    <h4>Post No: <%= index+1 %></h4>
+                    <h3><%= post.title %></h3>
+                    <p><%= post.text %></p>
+                    <div class="counters">
+                    <h5>Comments: <%= post.comments_counter%></h5>
+                    <h5>likes: <%= post.likes_counter%></h5>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    
+    
+    </div>
+
+</div>
