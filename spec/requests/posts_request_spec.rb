@@ -13,11 +13,6 @@ RSpec.describe 'Posts', type: :request do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'includes correct text' do
-      get user_posts_path
-      expect(response.body).to include('All the post of a user goes here')
-    end
-
     it 'renders the index template' do
       get user_posts_path
       expect(response).to render_template('index')
@@ -34,10 +29,6 @@ RSpec.describe 'Posts', type: :request do
       get user_post_path('1')
       expect(response).to have_http_status(:ok)
     end
-
-    it 'includes correct text' do
-      get user_post_path('1')
-      expect(response.body).to include('A single post with comments and likes goes here')
-    end
+    
   end
 end
