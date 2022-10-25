@@ -1,3 +1,2 @@
 class Comment < ApplicationController
-
 end
