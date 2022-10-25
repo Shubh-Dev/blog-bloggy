@@ -1,1 +1,33 @@
-<h2>All the post of a user goes here</h2>
+<div class="posts-container">
+    <div class="post-header">
+        <div class="post-image-holder">
+            <img src="<%= @user.photo %>" alt="user">
+        </div>
+            <div class="post-details">
+                <h3><%= @user.name %></h3>
+                <p>Posts: <%= @user.posts_counter || 0%></p>
+        </div>
+    </div>
+
+    <% @posts.reverse.each_with_index do |post, index| %>
+        <div class="post">
+            <a href="/users/id/posts/<%= post.id %>"><h4>Post No: <%= index+1 %></h4></a>
+                
+            <h3><%= post.title %></h3>
+            <p><%= post.text %></p>
+            <div class="">
+                <p>Comments: <%= post.likes_counter || 0 %></p>
+                <p>Likes: <%= post.comments_counter || 0 %></p>
+
+                <div class="comments">
+                    <h3>Comments:</h3>
+                    <% post.show_recent_comments.each do |comment| %>
+                    <h3> <%= @user.name %> :</h3>  
+                    <p><%= comment.text %></p> 
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    <% end %>
+
+</div>

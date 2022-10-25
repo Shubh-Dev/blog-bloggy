@@ -1,1 +1,28 @@
-<h2>A single post with comments and likes goes here</h2>
+ <div class="detiled-post-container">
+    <div class="detailed-post-header">
+        <h4><%= @post.title %> by: <%= @post.user.name %></h4>
+        <span>Comments: <%= @post.comments_counter || 0 %>, Likes: <%= @post.likes_counter || 0 %></span> 
+    </div>
+    <div class="detailed-post-text">
+        <p><%= @post.text %></p>
+    </div>
+    <div class="detailes-post-comments">
+        <h4>Comments:</h4>
+        <% if @post.comments.empty? %>
+        <p>No comments yet</p>
+        <% else %>
+        <% @post.comments.each do |comment| %>
+            <div class="comment">
+            <p><%= comment.user.name %>:</p>
+                <p><%= comment.text %></p>
+                
+            </div>
+            <% end %>
+        <% end %>
+    </div>
+
+ </div> 
+
+
+
+
