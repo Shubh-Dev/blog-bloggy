@@ -29,6 +29,5 @@ RSpec.describe 'Posts', type: :request do
       get user_post_path('1')
       expect(response).to have_http_status(:ok)
     end
-    
   end
 end
