@@ -8,20 +8,29 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def new 
+  def new
+    @post = Post.new
+  end
 
+  def delete
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_posts_path
   end
 
   def create
-    @post = current_user.posts.new(params.require(:post).permit(:title, :text))
-    # @post = Post.new(params.require(:post).permit(:title, :text))
-    @post.save
+    @post = current_user.posts.new(post_params)
+    if @post.save
+      flash[:notice] = "Post was created successfully."
+      redirect_to "/users/#{@post.user.id}/posts/#{@post.id}"
+    else
+      render :new
+    end
   end
 
-  # private
+  private
 
-  # def post_params
-  #   params.require(:post).permit(:title, :text)
-  # end
-
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
 end

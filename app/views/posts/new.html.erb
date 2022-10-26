@@ -1,4 +1,12 @@
 <h3>Add New post</h3>
+<% if @post.errors.any? %>
+<h4>The folling errors prevented the post being saved! </h4>
+<ul>
+<% @post.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+<% end %>
 
 <%= form_with scope: :post, url: user_posts_path, local: true do |f| %>
 <%= f.label :title %> <br>
