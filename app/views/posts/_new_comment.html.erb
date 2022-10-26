@@ -1,5 +1,0 @@
-<%= form_with(model: [ @post.user, @post.user.comments.build ], url: "/users/#{@post.user.id}/posts/#{@post.id}/comments") do |f| %>
-<% f.label :text %> <br>
-<% f.text_area :text %> <br>
-<% f.submit "create Comment" %>
-<% end %> 

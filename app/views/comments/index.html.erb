@@ -1,0 +1,15 @@
+<div class="comments-container">
+    <h2>Comments</h2>
+    <div class="comments">
+        <% @comments.each do |comment| %>
+        <div class="comment">
+            <div class="comment-body">
+            <%= comment.text %>
+            </div>
+            <div class="comment-author">
+         <h4>by: <strong><%= comment.user.name %></strong></h4>
+            </div>
+        </div>
+        <% end %>
+    </div>
+</div>
