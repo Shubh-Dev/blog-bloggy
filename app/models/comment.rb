@@ -1,8 +1,8 @@
 class Comment < ApplicationRecord
-  belongs_to :post, inverse_of: :comments, foreign_key: 'post_id'
-  belongs_to :user, inverse_of: :comments, foreign_key: :author_id
+  belongs_to :post, foreign_key: 'post_id'
+  belongs_to :user, foreign_key: :author_id
 
-  validates :text, presence: true, length: { maximum: 1000 }
+  validates :text, presence: true
 
   after_save :update_comments_counter
 

@@ -11,13 +11,13 @@
 
     <% @posts.reverse.each_with_index do |post, index| %>
         <div class="post">
-            <a href="/users/id/posts/<%= post.id %>"><h4>Post No: <%= index+1 %></h4></a>
+            <a href="/users/<%= @user.id %>/posts/<%= post.id %>"><h4>Post No: <%= index+1 %></h4></a>
                 
             <h3><%= post.title %></h3>
             <p><%= post.text %></p>
             <div class="">
-                <p>Comments: <%= post.likes_counter || 0 %></p>
-                <p>Likes: <%= post.comments_counter || 0 %></p>
+                <p>Comments: <%= post.comments_counter || 0 %></p>
+                <p>Likes: <%= post.likes_counter || 0 %></p>
 
                 <div class="comments">
                     <h3>Comments:</h3>
@@ -29,5 +29,8 @@
             </div>
         </div>
     <% end %>
+    <div class="new-post">
+        <%= link_to "Create New Post", new_user_post_path(@user) %>
+    </div>
 
 </div>

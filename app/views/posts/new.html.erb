@@ -1,0 +1,9 @@
+<h3>Add New post</h3>
+<%= form_with scope: :post, url: user_posts_path, local: true do |f| %>
+<%= f.label :title %> <br>
+  <%= f.text_field :title %> <br>
+  <%= f.label :text %> <br>
+  <%= f.text_area :text %> <br>  
+  <%= f.submit "create Post" %>
+
+<% end %>

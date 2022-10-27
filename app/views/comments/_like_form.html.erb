@@ -1,0 +1,3 @@
+<%= form_with scope: :like, url: user_post_likes_path(@post.user, @post), local: true do |f| %>
+  <%= f.submit "Like" , class: "like" %>
+    <% end %>
