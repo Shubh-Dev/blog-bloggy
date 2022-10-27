@@ -20,7 +20,14 @@
             <% end %>
         <% end %>
     </div>
-    
+    <div class="comment-form">
+        <%= render partial: 'comments/form', locals: { post: @post } %>
+    </div>
+    <br>
+    <div class="like-form">
+        <%= render partial: 'comments/like_form', locals: { post: @post } %>
+    </div>
+    <br>
     <div class="back-button">
         <%= link_to "Back", user_posts_path %>
     </div>
