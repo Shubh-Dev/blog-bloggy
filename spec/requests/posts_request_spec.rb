@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'Posts', type: :request do
   describe 'GET /posts' do
-    before(:example) { get user_posts_path('1') }
+    before(:example) { get user_posts_path('2') }
     it 'works! (now write some real specs)' do
       get user_posts_path
       expect(response).to have_http_status(200)
@@ -20,13 +20,13 @@ RSpec.describe 'Posts', type: :request do
   end
 
   describe 'GET /show' do
-    before(:example) { get user_post_path('1', '1') }
+    before(:example) { get user_post_path('1', '2') }
     it 'renders the show template' do
-      get user_post_path('1')
+      get user_post_path('2')
       expect(response).to render_template('show')
     end
     it 'return status :ok' do
-      get user_post_path('1')
+      get user_post_path('2')
       expect(response).to have_http_status(:ok)
     end
   end

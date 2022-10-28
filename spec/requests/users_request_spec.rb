@@ -12,16 +12,4 @@ RSpec.describe 'Users', type: :request do
       expect(response).to have_http_status(:ok)
     end
   end
-
-  describe 'GET /show' do
-    it 'renders the :show template' do
-      get user_path(1)
-      expect(response).to render_template(:show)
-    end
-
-    it 'returns the status :ok' do
-      get user_path(1)
-      expect(response).to have_http_status(:ok)
-    end
-  end
 end

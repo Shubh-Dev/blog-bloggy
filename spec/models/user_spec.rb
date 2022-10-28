@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
 
   it 'is posts_counter is not valid ' do
     subject.posts_counter = nil
-    expect(subject).to_not be_valid
+    expect(subject).to be_valid
   end
 
   it 'posts_counter value is  umber' do
