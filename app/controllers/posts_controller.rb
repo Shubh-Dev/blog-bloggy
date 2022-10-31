@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = Post.where(user: @user).order(created_at: :desc)
+    @posts = Post.includes(:user).where(user: @user).order(created_at: :desc)
   end
 
   def show
@@ -25,6 +25,12 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_posts_path
   end
 
   private

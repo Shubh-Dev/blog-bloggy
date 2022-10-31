@@ -31,6 +31,9 @@
     <div class="back-button">
         <%= link_to "Back", user_posts_path %>
     </div>
+    <div class="destroy-btn">
+        <%= link_to "Delete", user_posts_path(@post), method: :delete %>
+    </div>
 
  </div> 
 

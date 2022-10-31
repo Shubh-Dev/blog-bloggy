@@ -17,7 +17,12 @@ This is a Catalog of blogs created with ruby, rails and PostgreSQL.
 - Run rails server or rails s to start the application on local server.
 - To test the project, run rspec in your terminal
 
+## Run tests
+    Run bundle install
+    Run rubocop
+    Run rspec
 
+    
 ## Author
 
 👤 **Shubh Dev**
