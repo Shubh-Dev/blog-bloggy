@@ -18,12 +18,10 @@ RSpec.describe 'Posts', type: :request do
     it 'renders corret page template' do
       expect(response.body).to include('John')
     end
-    
+
     it 'renders index tempate' do
       expect(response).to render_template(:index)
     end
-    
-    
   end
 
   describe 'GET /show' do
@@ -50,7 +48,7 @@ RSpec.describe 'Posts', type: :request do
     it 'renders corret page template' do
       expect(response.body).to include('This is a post')
     end
-    
+
     it 'renders show tempate' do
       expect(response).to render_template(:show)
     end
