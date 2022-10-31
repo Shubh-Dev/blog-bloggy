@@ -5,11 +5,11 @@ RSpec.describe 'user', type: :system do
     before :all do
       @user = User.create(name: 'Victor', photo: 'https://i.imgur.com/1J8mYQJ.jpg',
                           bio: 'I am a software developer', posts_counter: 0)
-      end
+    end
 
-      after :all do
-        @user.destroy
-      end
+    after :all do
+      @user.destroy
+    end
 
     it 'shows the user index page' do
       visit users_path
@@ -42,6 +42,5 @@ RSpec.describe 'user', type: :system do
       click_link @user.name
       expect(page).to have_content 'Total Post: 0'
     end
-
   end
 end
