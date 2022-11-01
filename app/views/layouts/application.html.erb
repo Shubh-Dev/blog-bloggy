@@ -12,6 +12,11 @@
 
   <body>
   <div><h1>Bloggy App</h1></div>
+  <div class="sign-put">
+    <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
+  </div>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

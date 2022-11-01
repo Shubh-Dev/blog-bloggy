@@ -19,18 +19,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = current_user.posts.new(post_params)
+    @user = User.find(params[:user_id])
+    @post = @user.posts.create(post_params)
     if @post.save
-      redirect_to "/users/#{@post.user.id}/posts/#{@post.id}"
+      redirect_to user_posts_path
     else
       render :new
     end
-  end
-
-  def destroy
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to user_posts_path
   end
 
   private
