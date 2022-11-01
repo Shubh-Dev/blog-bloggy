@@ -12,7 +12,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = current_user.comments.new(comment_params)
+    @user = User.find(params[:user_id])
+    @comment = @user.comments.new(comment_params)
     flash[:notice] = @comment.errors.full_messages.to_sentence.capitalize unless @comment.save
 
     redirect_to user_post_path(current_user, params[:post_id])
