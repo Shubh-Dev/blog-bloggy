@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   def index
     @user = User.find(params[:user_id])
-    @posts = Post.includes(:user).where(user: @user).order(created_at: :desc)
+    @posts = Post.where(user: @user).order(created_at: :desc)
   end
 
   def show
@@ -12,10 +12,16 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def delete
-    @post = Post.find(params[:id])
+  def destroy
+    @post = Post.find(params[:post_id])
     @post.destroy
-    redirect_to user_posts_path
+    if @post.destroy
+      flash[:notice] = 'Post deleted'
+
+      redirect_to user_posts_path(current_user)
+    else
+      flash[:notice] = 'Post not deleted'
+    end
   end
 
   def create

@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[name bio photo])
     devise_parameter_sanitizer.permit(:account_update, keys: %i[name bio photo])
   end
+
+  def current_user
+    User.find_by(id: session[:user_id])
+  end
 end
