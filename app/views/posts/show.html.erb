@@ -15,7 +15,7 @@
             <div class="comment">
              <p><%= comment.user.name %>:</p>
                 <p><%= comment.text %></p>
-                <% if can? :destroy, @post %>
+                <% if can? :destroy, comment %>
                     <%= button_to 'Delete comment', "/users/#{params[:user_id]}/posts/#{@post.id}/comments/#{comment.id}", method: :delete %>
                 <% end %>
             </div>
