@@ -12,18 +12,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def destroy
-    @post = Post.find(params[:post_id])
-    @post.destroy
-    if @post.destroy
-      flash[:notice] = 'Post deleted'
-
-      redirect_to user_posts_path(current_user)
-    else
-      flash[:notice] = 'Post not deleted'
-    end
-  end
-
   def create
     @user = User.find(params[:user_id])
     @post = @user.posts.create(post_params)
@@ -32,6 +20,12 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy 
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to current_user
   end
 
   private

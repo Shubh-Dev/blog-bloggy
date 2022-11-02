@@ -15,7 +15,9 @@
             <div class="comment">
              <p><%= comment.user.name %>:</p>
                 <p><%= comment.text %></p>
-                
+                <% if can? :destroy, @post %>
+                    <%= button_to 'Delete comment', "/users/#{params[:user_id]}/posts/#{@post.id}/comments/#{comment.id}", method: :delete %>
+                <% end %>
             </div>
             <% end %>
         <% end %>
@@ -32,9 +34,9 @@
         <%= link_to "Back", user_posts_path %>
     </div>
     <div class="destroy-btn">
-        <% if can? :destroy, @post %>
-    <%= button_to 'Delete Post', user_posts_path(@post),  data: { "turbo-method": :delete , "turbo-confirm": "Are you sure?" } %>
-  <% end %> 
+        <% if can? :destroy, @post %> 
+        <%= button_to "Delete", user_post_path(@post), method: :delete %>
+        <% end %>
     </div>
 
  </div> 

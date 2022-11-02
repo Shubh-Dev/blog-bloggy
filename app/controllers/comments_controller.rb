@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   def index
-    @post = Post.find(params[:post_id])
-    @comments = @post.comments
+    @user = User.includes(:comments).find(params[:user_id])
+    @comments = @user.comments
+   
   end
 
   def new
