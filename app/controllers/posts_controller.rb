@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   def index
     @user = User.find(params[:user_id])
-    @posts = Post.includes(:user).where(user: @user).order(created_at: :desc)
+    @posts = Post.where(user: @user).order(created_at: :desc)
   end
 
   def show
@@ -12,12 +13,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def delete
-    @post = Post.find(params[:id])
-    @post.destroy
-    redirect_to user_posts_path
-  end
-
   def create
     @user = User.find(params[:user_id])
     @post = @user.posts.create(post_params)
@@ -26,6 +21,12 @@ class PostsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to current_user
   end
 
   private

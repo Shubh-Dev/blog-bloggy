@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   def index
-    @post = Post.find(params[:post_id])
-    @comments = @post.comments
+    @user = User.includes(:comments).find(params[:user_id])
+    @comments = @user.comments
   end
 
   def new
@@ -16,6 +16,15 @@ class CommentsController < ApplicationController
     @comment = @user.comments.new(comment_params)
     flash[:notice] = @comment.errors.full_messages.to_sentence.capitalize unless @comment.save
 
+    redirect_to user_post_path(current_user, params[:post_id])
+  end
+
+  def destroy
+    @comment = Comment.find(params[:id])
+    @post = Post.find(@comment.post_id)
+    @post.comments_counter -= 1
+    @comment.destroy!
+    @post.save!
     redirect_to user_post_path(current_user, params[:post_id])
   end
 

@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :posts, dependent: :destroy, inverse_of: :user, foreign_key: 'author_id'
+  has_many :posts, dependent: :destroy, inverse_of: :user, foreign_key: 'author_id', counter_cache: :posts_counter
   has_many :comments, dependent: :destroy, inverse_of: :user, foreign_key: 'author_id'
   has_many :likes, through: :posts, dependent: :destroy
 
@@ -11,5 +11,9 @@ class User < ApplicationRecord
 
   def three_recent_posts
     posts.order(created_at: :desc).limit(3)
+  end
+
+  def admin?
+    :role == 'admin'
   end
 end
