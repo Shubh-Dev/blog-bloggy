@@ -30,8 +30,6 @@ This is a Catalog of blogs created with ruby, rails and PostgreSQL.
 ### Comments
     GET /api/v1/users/user_id/posts/post_id/comments
     POST /api/v1/users/user_id/posts/post_id/comments
-   
-
     
 ## Author
 
@@ -39,7 +37,6 @@ This is a Catalog of blogs created with ruby, rails and PostgreSQL.
 
 - GitHub: [@Shubh-Dev](https://github.com/Shubh-Dev) 
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/shubhscb/)
-
 
 
 ## 🤝 Contributing
