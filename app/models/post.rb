@@ -6,10 +6,17 @@ class Post < ApplicationRecord
   validates :title, presence: true, length: { minimum: 5, maximum: 250 }
   validates :text, presence: true, length: { minimum: 5, maximum: 1000 }
 
-  after_save :update_posts_counter
+  after_create :counter_increment
+  after_destroy :counter_decrement
 
-  def update_posts_counter
-    user.increment!(:posts_counter)
+  def counter_increment
+    self.user.posts_counter += 1
+    self.user.save
+  end
+
+  def counter_decrement
+    self.user.posts_counter -= 1
+    self.user.save
   end
 
   def show_recent_comments

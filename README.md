@@ -22,6 +22,16 @@ This is a Catalog of blogs created with ruby, rails and PostgreSQL.
     Run rubocop
     Run rspec
 
+## API endpoints
+
+### Posts
+    GET /api/v1/users/user_id/posts
+
+### Comments
+    GET /api/v1/users/user_id/posts/post_id/comments
+    POST /api/v1/users/user_id/posts/post_id/comments
+   
+
     
 ## Author
 
@@ -50,4 +60,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./License.md) licensed.
+This project is [MIT](./LICENSE.md) licensed.
