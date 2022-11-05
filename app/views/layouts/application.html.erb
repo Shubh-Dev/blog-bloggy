@@ -7,16 +7,25 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "users", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "header", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-  <div><h1>Bloggy App</h1></div>
-  <div class="sign-put">
-    <%= button_to "Sign out", destroy_user_session_path, method: :delete if user_signed_in? %> 
+  <div class="header">
+   <div class="header-left">
+    <h1 class="headline">Bloggy App</h1>
+    <p class="punchline">This is where we tell stories</p>
+    </div>
+  <div class="sign-out-btn-div">
+  <%= button_to "Sign out", destroy_user_session_path, class: "sign-out-btn", method: :delete if user_signed_in? %> 
   </div>
+  </div>
+  <div class="user-container">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+  </div>
   </body>
 </html>

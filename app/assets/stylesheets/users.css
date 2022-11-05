@@ -1,0 +1,58 @@
+.user-container {
+    width: 95%;
+    margin: auto;
+    justify-content: center;
+ }
+
+ .sign-out-btn-div {
+    margin-top: 15px;
+ }
+
+ .sign-out-btn {
+    background-color: #0a770c;
+    border: none;
+    color: white;
+    padding: 15px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+ }
+
+ .sign-out-btn:hover {
+    color: rgb(245, 92, 21);
+ }
+
+ .header-left {
+    margin-top: 10px;
+ }
+
+ .current-user {
+    font-size: 15px;
+    margin-top: 10px;
+ }
+
+ .users-container {
+   border: 1px red dashed;
+   margin-top: 1rem;
+
+ }
+
+ .user-details-container {
+   display: flex;
+   justify-content: space-between;
+ }
+
+ .main-image-container {
+   width: 10vw;
+   height: 10vw;
+   border: 1px #000 solid;
+ }
+
+ .user-link {
+   margin-top: 10px;
+ }
+
+

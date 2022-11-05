@@ -1,15 +1,16 @@
-<div class="current-user">
+ <div class="current-user">
     <p>Loged in as: <%= current_user.name %></p>
-  </div>
-<% @users.each do |user| %>
-<div class="users-container">
+ </div>
+
+ <% @users.each do |user| %>
+ <div class="users-container">
     <div class="main-image-container">
-        <img src="<%= user.photo %>" alt="user">
+        <img src="<%= user.photo %>" alt="user" >
     </div>
 
     <div class="user-details-container">
        <a class="user-link" href='/users/<%= user.id %>'><strong>Name</strong>: <%= user.name %></a><br>
-        <h5><%= user.posts_counter || 0 %></h5>
+        <h5>Posts: <%= user.posts_counter || 0 %></h5>
     </div>
 <div>
 

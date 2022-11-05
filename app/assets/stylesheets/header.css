@@ -1,0 +1,19 @@
+.header {
+    width: 100%;
+    height: 85px;
+    border-bottom: 1px solid rgb(134, 197, 214);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    color: rgb(79, 72, 72);
+ }
+
+ .headline {
+    font-size: 20px;
+    margin-bottom: 5px;
+ }
+
+ .punchline {
+    font-size: 12px;
+ }
